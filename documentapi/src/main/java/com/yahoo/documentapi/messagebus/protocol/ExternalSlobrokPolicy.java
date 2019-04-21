@@ -25,7 +25,7 @@ public abstract class ExternalSlobrokPolicy extends AsyncInitializationPolicy im
     private SlobrokList slobroks = null;
     private boolean firstTry = true;
     private ConfigSubscriber subscriber;
-    private String[] configSources = null;
+    String[] configSources = null;
     private final static String slobrokConfigId = "admin/slobrok.0";
 
 
