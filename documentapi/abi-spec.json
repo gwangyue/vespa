@@ -2035,7 +2035,6 @@
       "abstract"
     ],
     "methods": [
-      "public void <init>(java.util.Map)",
       "public void init()",
       "public com.yahoo.jrt.slobrok.api.IMirror getMirror()",
       "public java.util.List lookup(com.yahoo.messagebus.routing.RoutingContext, java.lang.String)",
