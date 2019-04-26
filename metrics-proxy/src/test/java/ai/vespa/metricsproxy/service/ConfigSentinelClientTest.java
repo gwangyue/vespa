@@ -12,6 +12,9 @@ import java.util.List;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
+/**
+ * @author Unknown
+ */
 public class ConfigSentinelClientTest {
 
     @Test
@@ -20,7 +23,7 @@ public class ConfigSentinelClientTest {
         List<VespaService> services = new ArrayList<>();
         VespaService docproc = new VespaService("docprocservice", "docproc/cluster.x.indexing/0");
         VespaService searchnode4 = new VespaService("searchnode4", "search/cluster.x/g0/c1/r1");
-        VespaService qrserver = new VespaService("qrserver", "search/qrsclusters/default/qrserver.0");
+        VespaService qrserver = new VespaService("qrserver", "container/qrserver.0");
 
         services.add(searchnode4);
         services.add(qrserver);

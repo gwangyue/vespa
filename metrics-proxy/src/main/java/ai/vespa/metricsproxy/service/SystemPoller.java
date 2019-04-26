@@ -101,7 +101,7 @@ public class SystemPoller implements ServiceListener {
      *
      * @param service The service to mark as dead.
      */
-    private void markDead(VespaService service) {
+    private static void markDead(VespaService service) {
         service.setAlive(false);
     }
 
@@ -131,7 +131,7 @@ public class SystemPoller implements ServiceListener {
             Metrics metrics = new Metrics();
             log.log(LogLevel.DEBUG, "Current size of system metrics for service  " + s + " is " + metrics.size());
 
-            long size[] = getMemoryUsage(s);
+            long[] size = getMemoryUsage(s);
             log.log(LogLevel.DEBUG, "Updating memory metric for service " + s);
 
             metrics.add(new Metric("memory_virt", size[memoryTypeVirtual], startTime / 1000));
@@ -160,9 +160,10 @@ public class SystemPoller implements ServiceListener {
         }
     }
 
-    private long getPidJiffies(VespaService service) {
+    long getPidJiffies(VespaService service) {
         BufferedReader in;
-        String line, elems[];
+        String line;
+        String[] elems;
         int pid = service.getPid();
 
         try {
@@ -187,7 +188,7 @@ public class SystemPoller implements ServiceListener {
         return Long.parseLong(elems[13]) + Long.parseLong(elems[14]);
     }
 
-    private long getNormalizedSystemJiffies() {
+    long getNormalizedSystemJiffies() {
         BufferedReader in;
         String line;
         ArrayList<CpuJiffies> jiffies = new ArrayList<>();

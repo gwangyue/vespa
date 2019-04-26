@@ -7,13 +7,16 @@ package ai.vespa.metricsproxy.service;
 import ai.vespa.metricsproxy.metric.Metric;
 import ai.vespa.metricsproxy.metric.Metrics;
 
+/**
+ * @author Unknown
+ */
 public class DummyService extends VespaService {
     static final String NAME = "dummy";
     static final String METRIC_1 = "c.test";
 
     private final int num;
 
-    DummyService(int num, String configid) {
+    public DummyService(int num, String configid) {
         super(NAME, NAME + num, configid);
         this.num = num;
     }

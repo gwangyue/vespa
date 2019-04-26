@@ -42,6 +42,12 @@ public class VespaServices {
         this.sentinel = sentinel;
     }
 
+    // For testing only
+    VespaServices(List<VespaService> services) {
+        this.services = services;
+        sentinel = null;
+    }
+
     private List<VespaService> createServices(VespaServicesConfig servicesConfig, String monitoringSystem) {
         serviceDimensions = servicesConfig.service().stream().collect(
                 toUnmodifiableLinkedMap(Service::id, VespaServices::getServiceDimensions));
